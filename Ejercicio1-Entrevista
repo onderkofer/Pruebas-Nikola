@@ -1,0 +1,37 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main (String[] args) {
+	 
+		
+		//Usamos la clase scanner para pedir un número al usuario
+		Scanner leerNum= new Scanner(System.in);
+		
+		System.out.println("Introduce un número: ");
+		int num=leerNum.nextInt();
+		
+		
+		
+//Con el método if comprobamos si el número es par o no y con un       bucle for a continuación mostramos los numero correspondientes
+
+		if(num%2==0) {
+			System.out.println("El número introducido es par: "+num);
+			for(int i = num; i>=0; i-=2) {
+				System.out.println(i);
+			}
+		}
+		
+		else {
+			System.out.println("El número introducido es impar: "+num);
+			for(int i = num; i>=0; i-=2) {
+				System.out.println(i);
+			}
+		}
+		
+		
+	}
+	
+}
+
