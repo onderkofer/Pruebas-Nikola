@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main (String[] args) {
+	 	
+	double sueldo;
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		//se solicitan la tarifa y las horas
+		System.out.println("Introduce la tarifa €\\h:");
+		int tarifa = scanner.nextInt();
+		
+		System.out.println("Introduce las horas trabajadas:");
+		int horas = scanner.nextInt();
+		
+		
+		//con un método if comprobamos la cantidad de horas para hacer el cálculo correspondiente
+		if(horas>40) {
+			
+			int horasExtra = horas - 40;
+			double tarifaExtra=tarifa*1.5;
+			
+			sueldo=(horas*tarifa)+(horasExtra*tarifaExtra);
+			
+		}
+		else {
+			sueldo=horas*tarifa;
+		}
+		
+		System.out.println("Tu sueldo con: " +horas+"h trabajadas y tarifa de: "+tarifa+"€\\h "+"es de: "+sueldo+"€");
+		
+	}
+	
+}
