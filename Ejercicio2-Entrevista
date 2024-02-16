@@ -1,0 +1,77 @@
+//Ejercicio 2 entrevista
+
+
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main (String[] args) {
+	 	
+		//se crean todas las variables necesarias para guardar los numeros
+		int mayoresEdad=0, menoresEdad=0, hombresMayores=0, mujeresMenores=0;
+		int hombres=0, mujeres=0;
+		
+		float porcentajeMayores, porcentajeMujeres;
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		//iniciamos el array
+		Persona[] personas = new Persona[50];
+		
+		
+		//con un bucle for recorremos el array y añadimos datos por cada persona
+		for(int i=0; i<personas.length; i++) {
+			
+			personas[i]=new Persona();
+			
+			System.out.println("Introduce la edad de la persona:");
+			int year=scanner.nextInt();
+			 personas[i].edad=year;
+			 
+			 scanner.nextLine();
+			 
+			System.out.println("Introduce el sexo de la persona: Masculino/Femenino");
+			String sexo=scanner.nextLine();
+			personas[i].sexo=sexo.toLowerCase();
+		}
+		
+		
+		//recorremos todas las personas del array y sus datos
+		for(Persona persona:personas) {
+			if(persona.edad>=18) {
+				mayoresEdad++;
+				if(persona.sexo=="masculino") {
+					hombresMayores++;
+					hombres++;
+				}else {
+					mujeres++;
+				}
+			}
+			else {
+				menoresEdad++;
+				if(persona.sexo=="femenino") {
+					mujeresMenores++;
+					mujeres++;
+				}
+				else {
+					hombres++;
+				}
+			}
+		}
+		
+		porcentajeMayores=(mayoresEdad/50)*100;
+		porcentajeMujeres=(mujeres/50)*100;
+		
+		
+		//resultados
+		System.out.println("Cantidad de pesonas mayores de edad(18 años o más): "+mayoresEdad);
+		System.out.println("Cantidad de personas menores de edad: "+menoresEdad);
+		System.out.println("Cantidad de personas masculinas mayores de edad: "+hombresMayores);
+		System.out.println("Cantidad de personas femeninas menores de edad: "+mujeresMenores);
+		System.out.println("Porcentaje que representan las personas mayores de edad respecto al total de personas:"+porcentajeMayores+"%");
+		System.out.println("Porcentaje que representan las mujeres respecto al total de personas"+porcentajeMujeres+"%");
+		
+	}
+	
+}
